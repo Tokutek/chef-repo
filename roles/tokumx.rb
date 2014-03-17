@@ -1,7 +1,14 @@
 name "tokumx"
-description "stand-alone mongodb instance"
+description "stand-alone tokumx instance"
+
+override_attributes(
+    mongodb: {
+        package_name: 'tokumx'
+    }
+)
+
 run_list(
-    "recipe[tokumx::tokutek_repo]",
+    "recipe[mongodb::tokutek_repo]",
     "recipe[apt]",
-    "recipe[tokumx]"
+    "recipe[mongodb]"
 )
