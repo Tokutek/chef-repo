@@ -1,0 +1,19 @@
+{
+  "sources": {
+    "hipsnip-mongodb": {
+      "path": "."
+    },
+    "apt": {
+      "locked_version": "2.1.0"
+    },
+    "hipsnip-mongodb_test": {
+      "path": "./test/cookbooks/hipsnip-mongodb_test"
+    },
+    "ark": {
+      "locked_version": "0.4.2"
+    },
+    "sysctl": {
+      "locked_version": "0.3.3"
+    }
+  }
+}
