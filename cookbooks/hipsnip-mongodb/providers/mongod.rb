@@ -18,13 +18,16 @@
 #
 
 action :create do
-  instance_name = if new_resource.name == "default" then "mongod"
+  instance_name = if node[:mongodb][:distro] == "tokumx" then "tokumx"
+                  elsif new_resource.name == "default" then "mongod"
                   else "mongod-#{new_resource.name}"
                   end
 
   Chef::Log.info "Configuring MongoDB instance '#{instance_name}'..."
 
-  config_file = "/etc/mongodb/#{instance_name}.conf"
+  config_file = if node[:mongodb][:distro] == "tokumx" then "/etc/tokumx.conf"
+                else "/etc/mongodb/#{instance_name}.conf"
+                end
 
   template config_file do
     source "mongod.conf.erb"

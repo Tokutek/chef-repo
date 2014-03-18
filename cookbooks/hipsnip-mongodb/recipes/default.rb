@@ -26,9 +26,6 @@ end
 require 'mongo'
 require 'fileutils'
 
-#node.set['mongodb']['download']['src'] = "http://#{node['mongodb']['download']['host']}/#{node['mongodb']['download']['subfolder']}mongodb-linux-#{node['kernel']['machine']}-#{node['mongodb']['download']['version']}.tgz"
-node.set['mongodb']['download']['src'] = "https://s3.amazonaws.com/tokumx-1.4.0/tokumx-1.4.0-linux-x86_64-main.tar.gz"
-
 # Update TCP keepalive time
 sysctl_param "net.ipv4.tcp_keepalive_time" do
   value node['mongodb']['tcp_keepalive_time']
@@ -69,7 +66,6 @@ if node['mongodb']['auth_enabled'] && node['mongodb']['auth_keyfile'] == '/etc/m
     group node['mongodb']['group']
   end
 end
-
 
 ################################################################################
 # Download MongoDB release - NOTE: This won't configure and start an instance

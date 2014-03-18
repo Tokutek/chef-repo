@@ -8,7 +8,7 @@ override_attributes(
 )
 
 run_list(
-    "recipe[mongodb::tokutek_repo]",
     "recipe[apt]",
+    "recipe[mongodb::tokutek_repo]",
     "recipe[mongodb]"
 )

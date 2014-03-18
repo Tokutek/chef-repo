@@ -20,7 +20,8 @@
 ################################################################################
 # Download and install
 
-default[:mongodb][:package_name] = 'mongo'
+default[:mongodb][:distro] = 'mongodb'
+default[:mongodb][:package_name] = 'mongodb-10gen'
 default[:mongodb][:package_version] = nil
 
 ################################################################################
