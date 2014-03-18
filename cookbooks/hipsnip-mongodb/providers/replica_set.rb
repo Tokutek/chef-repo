@@ -174,8 +174,8 @@ action :create do
     new_config = ::BSON::OrderedHash.new
     new_config['_id'] = replica_set_name
     new_config['version'] = current_config['version'] + 1
+    new_config['protocolVersion'] = current_config['protocolVersion']
     new_config['members'] = members.collect{|member| generate_member_config(member)}.sort_by!{|n| n['_id']}
-
 
     Chef::Log.info "Comparing new config to old config..."
 

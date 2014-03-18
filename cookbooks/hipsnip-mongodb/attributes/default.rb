@@ -32,7 +32,7 @@ default['mongodb']['group_id'] = 3500
 default['mongodb']['group'] = 'mongodb'
 
 # Paths
-default['mongodb']['log_dir'] = '/var/log/mongo'
+default['mongodb']['log_dir'] = '/var/log'
 # we'll create a new folder in these paths for each instance
 default['mongodb']['data_dir'] = '/var/lib/mongo_data'
 default['mongodb']['journal_dir'] = '/var/lib/mongo_journal'

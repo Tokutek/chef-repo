@@ -60,6 +60,14 @@ action :create do
     recursive true
   end
 
+  # Log dir
+  directory ::File.join(node['mongodb']['log_dir'], instance_name) do
+    owner node['mongodb']['user']
+    group node['mongodb']['group']
+    mode  '755'
+    recursive true
+  end
+
   link ::File.join(node['mongodb']['data_dir'], instance_name, 'journal') do
     to ::File.join(node['mongodb']['journal_dir'], instance_name)
   end

@@ -32,26 +32,8 @@ sysctl_param "net.ipv4.tcp_keepalive_time" do
   only_if { node['mongodb']['set_tcp_keepalive_time'] }
 end
 
-
 ################################################################################
-# Set up Mongo user, group and folders
-
-group node['mongodb']['group'] do
-  gid node['mongodb']['group_id']
-  action :create
-end
-
-user node['mongodb']['user'] do
-  gid   node['mongodb']['group_id']
-  shell '/bin/false' # no login
-  # no home dir
-end
-
-directory '/etc/mongodb' do
-  mode  '755'
-  owner 'root'
-  group 'root'
-end
+# Set up Mongo folders
 
 if node['mongodb']['auth_enabled'] && node['mongodb']['auth_keyfile'] == '/etc/mongodb/keyfile'
   raise '"auth_keyfile_data" can not be blank if authentication is enabled and no keyFile is specified' if node['mongodb']['auth_keyfile_data'].empty?
