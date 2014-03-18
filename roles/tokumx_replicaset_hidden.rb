@@ -1,5 +1,5 @@
-name "tokumx_replicaset"
-description "tokumx replica-set member"
+name "tokumx_replicaset_hidden"
+description "hidden node in a replica set"
 
 override_attributes(
   "mongodb" => {
@@ -7,7 +7,12 @@ override_attributes(
     "group" => "tokumx",
     "distro" => "tokumx",
     "package_name" => "tokumx",
-    "syslog" => "false"
+    "syslog" => "false",
+    "mongod" => {
+      "hidden" => true,
+      "priority" => 0,
+      "votes" => 0
+    }
   },
 )
 
