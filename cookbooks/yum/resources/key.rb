@@ -1,7 +1,7 @@
+# Encoding: utf-8
 #
-# Author:: Seth Chisamore <schisamo@opscode.com>
-# Cookbook Name:: python
-# Recipe:: virtualenv
+# Cookbook Name:: yum
+# Resource:: key
 #
 # Copyright 2011, Opscode, Inc.
 #
@@ -18,8 +18,13 @@
 # limitations under the License.
 #
 
-include_recipe "python::pip"
+actions :add, :remove
+default_action :add
 
-python_pip "virtualenv" do
-  action :install
+attribute :key, kind_of: String, name_attribute: true
+attribute :url, kind_of: String, default: nil
+
+def initialize(*args)
+  super
+  @action = :add
 end

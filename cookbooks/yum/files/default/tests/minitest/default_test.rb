@@ -1,9 +1,9 @@
+# Encoding: utf-8
 #
-# Author:: Seth Chisamore <schisamo@opscode.com>
-# Cookbook Name:: python
-# Recipe:: virtualenv
+# Cookbook Name:: yum
+# Recipe:: default
 #
-# Copyright 2011, Opscode, Inc.
+# Copyright 2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,8 +18,12 @@
 # limitations under the License.
 #
 
-include_recipe "python::pip"
+require File.expand_path('../support/helpers', __FILE__)
 
-python_pip "virtualenv" do
-  action :install
+describe 'yum::default' do
+  include Helpers::YumTest
+
+  it 'Default recipe does nothing, so default_test does nothing' do
+    skip 'Default recipe does nothing so default test does nothing'
+  end
 end

@@ -7,3 +7,6 @@ TODO
 .chef/*.pem
 .chef/encrypted_data_bag_secret
 .chef
+
+## Ignore cookbooks/mongodb, which should be a symlink to the tokutek/chef-mongodb repo
+cookbooks/mongodb

@@ -1,7 +1,7 @@
+# Encoding: utf-8
 #
-# Author:: Seth Chisamore <schisamo@opscode.com>
-# Cookbook Name:: python
-# Recipe:: virtualenv
+# Cookbook Name:: yum
+# Attributes:: remi
 #
 # Copyright 2011, Opscode, Inc.
 #
@@ -18,8 +18,14 @@
 # limitations under the License.
 #
 
-include_recipe "python::pip"
-
-python_pip "virtualenv" do
-  action :install
+case node['platform']
+when 'fedora'
+  default['yum']['remi']['url'] = "http://rpms.famillecollet.com/fedora/#{node['platform_version'].to_i}/remi/mirror"
+else
+  default['yum']['remi']['url'] = "http://rpms.famillecollet.com/enterprise/#{node['platform_version'].to_i}/remi/mirror"
 end
+
+default['yum']['remi']['key'] = 'RPM-GPG-KEY-remi'
+default['yum']['remi']['key_url'] = "http://rpms.famillecollet.com/#{node['yum']['remi']['key']}"
+default['yum']['remi']['includepkgs'] = nil
+default['yum']['remi']['exclude'] = nil
