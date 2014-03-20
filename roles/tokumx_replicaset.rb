@@ -7,7 +7,8 @@ override_attributes(
     "group" => "tokumx",
     "distro" => "tokumx",
     "package_name" => "tokumx",
-    "syslog" => "false"
+    "syslog" => "false",
+    "data_dir" => "/mnt/tokumx_data",
   },
 )
 

@@ -8,6 +8,7 @@ override_attributes(
     "distro" => "tokumx",
     "package_name" => "tokumx",
     "syslog" => "false",
+    "data_dir" => "/mnt/tokumx_data",
     "mongod" => {
       "hidden" => true,
       "priority" => 0,
