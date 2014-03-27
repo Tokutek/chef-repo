@@ -1,19 +1,27 @@
-name "tokumx_replicaset"
+name "tokumx_replicaset_edelight"
 description "tokumx replica-set member"
 
 override_attributes(
   "mongodb" => {
     "user" => "tokumx",
     "group" => "tokumx",
-    "distro" => "tokumx",
     "package_name" => "tokumx",
     "syslog" => "false",
-    "data_dir" => "/mnt/tokumx_data",
-  },
+    "config" => {
+      "dbpath" => "/mnt/tokumx_data",
+      "logpath" => "/var/log/tokumx/tokumx.log",
+      "replSet" => "replicaset0"
+    },
+    "dbconfig_file" => "/etc/tokumx.conf",
+    "cluster_name" => "cluster0",
+    "shard_name" => "shard0",
+    "instance_name" => "tokumx",
+    "default_init_name" => "tokumx"
+  }
 )
 
 run_list(
   "recipe[apt]",
   "recipe[mongodb::tokutek_repo]",
-  "recipe[hipsnip-mongodb::replica_set]"
+  "recipe[mongodb::replicaset]"
 )
