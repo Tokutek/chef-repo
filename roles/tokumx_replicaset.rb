@@ -1,4 +1,4 @@
-name "tokumx_replicaset_edelight"
+name "tokumx_replicaset"
 description "tokumx replica-set member"
 
 override_attributes(

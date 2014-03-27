@@ -1,4 +1,4 @@
-name "tokumx_edelight"
+name "tokumx_single"
 description "tokumx stand-alone server"
 
 override_attributes(
