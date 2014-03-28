@@ -10,4 +10,4 @@ TODO
 
 ## Ignore these externally managed cookbooks. They have their own repositories.
 cookbooks/mongodb
-cookbooks/hipsnip-mongodb
+cookbooks/tokumx
