@@ -22,6 +22,6 @@ override_attributes(
 
 run_list(
   "recipe[apt]",
-  "recipe[mongodb::tokutek_repo]",
+  "recipe[tokumx::tokutek_repo]",
   "recipe[mongodb::replicaset]"
 )
