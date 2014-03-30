@@ -22,6 +22,8 @@ template_role='{
       "config": {
         "dbpath": "/mnt/tokumx_data",
         "logpath": "/var/log/tokumx/tokumx.log",
+        "slowms": "1000",
+        "expireOplogDays": "1",
         "replSet": "ROLE_TEMPLATE_REPLSET"
       },
       "dbconfig_file": "/etc/tokumx.conf",
@@ -123,6 +125,7 @@ function spinup_replset_shard {
             echo "Failed to spin up node ${node_name}"
             exit 1
         fi
+        sleep 3 # knife takes about 3 seconds of single-threaded CPU to spawn - sadness...
     done
 }
 
